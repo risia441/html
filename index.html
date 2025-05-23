@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML・CSS勉強会ハンズオン2</title>
+
+    <!--styleタグの中に、適用させたいCSSプロパティを記述します-->
+    <style>
+        *{
+            /* これらはリセットCSSといい、ブラウザでデフォルトでかかっている余分な余白を初期化します */
+            /* 「*」セレクタは「全ての要素」を指します(ワイルドカード) */
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif; /* フォントを変更 */
+            font-size: 16px; /* フォントサイズを変更 */
+        }
+    
+        header {
+            text-align: center; /* テキストを中央揃え */
+            display: flex;  /* 横並びに変更 */
+            align-items: center; /* 縦方向の中央揃え */
+            justify-content: center; /* 横方向の中央揃え */
+            padding: 5px; /* 上下の余白を指定 */
+        }
+
+        header .icon {
+            width: 50px; /* 幅を指定 */
+            height: 50px; /* 高さを指定 */
+            background-image: url('./logo-150.png'); /* アイコン画像を指定 */
+            background-size: contain; /* 画像を要素に合わせて拡大縮小 */
+            background-repeat: no-repeat; /* 画像を繰り返さない */
+        }
+
+        /* バナー上の文字をきれいに映すためのおまじないです。 */
+        /* 画像と文字のみ変更してください */
+        .banner {
+            position: relative; /* 相対位置に配置 */
+            color: #fff; /* 文字色を白に */
+            text-align: left; /* テキストを左揃え */
+            height: 200px; /* バナーの高さを指定 */
+            display: flex; /* フレックスボックスを使用 */
+            align-items: center; /* 縦方向の中央揃え */
+            padding: 20px; /* 内側の余白を指定 */
+        }
+
+        .banner::before {
+            content: ''; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* urlの後だけ好きに変える */
+            background-image: url('./header.png'); /* バナー画像を指定 */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6); /* 画像の明度を下げる */
+            z-index: 1; /* 背景として配置 */
+        }
+
+        .banner h1 {
+            position: relative;
+            z-index: 2; /* 文字を前面に配置 */
+            margin: 0;
+            color: #fff;
+            -webkit-text-stroke-color: black;
+            -webkit-text-stroke-width: 1.5px;
+            font-size: 5ch;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background-color: #f1f1f1; /* 背景色を変更 */
+            display: flex;
+      
+        }
+        
+        .container img {     
+            height: auto;  /* 画像の高さを指定 */
+            width: 700px; /* 画像の幅を指定 */     
+            margin: 20px; /* 画像の周りに余白を追加 */
+        }
+
+        h1, h2, h3 {
+            color: orange; /* 見出しの文字色を変更 */
+        }
+
+        ul, ol {
+            /* リセットCSSによってデフォルトのスタイルが消えているので、再設定 */
+            margin-left: 20px; /* リスト全体のインデントを設定 */
+            padding-left: 20px; /* マーカーとテキストの間の余白を調整 */
+        }
+
+        li{
+            list-style: circle; /* リストマーカーを丸に設定 */
+        }
+        li li{
+            list-style: square; /* 入れ子のリストマーカーを四角に設定 */
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            font-size: 0.875rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- ヘッダーです。余裕があれば変えてもらってOKです。 -->
+    <header>
+        <p class="icon"></p>
+        <a href="file:///Users/uta/Kindai/Acticvity/5:23HTML,CSS%E5%8B%89%E5%BC%B7%E4%BC%9A/%E9%85%8D%E5%B8%83%E7%89%A9/hands-on-3/index.html">GitHubPages勉強会</a>
+    </header>
+    <!-- バナー画像です。cssから画像を変えれます -->
+    <div class="banner">
+        <h1> ここにページのタイトル</h1>
+    </div>
+    <!-- ここにHTMLを記述していきます、テンプレートをコピーアンドペーストして使ってください -->
+    <div class="container">
+         <!-- 画像をの横に文字を配置するため、contentの中に記述 -->
+        <div class="content">
+            <p>以下テンプレートです。HTMLとCSSを使って自由に書いてみてください。</p>
+
+            <h1>見出し1</h1>
+            <h2>見出し2</h2>
+            <h3>見出し3</h3>
+            <p>段落</p>
+            <a href="https://www.google.com">リンク</a>
+            <p>一部を<strong>太字</strong>に</p>
+
+            <!-- listの中にもう一度ulとリストで入れ子-->
+            <ul>
+                <li>リスト１</li>
+                <li>
+                リスト2
+                <ul>
+                    <li>ネスト1</li>
+                    <li>ネスト2</li>
+                </ul>
+                </li>
+            </ul>
+
+        </div>
+        <img src="./picture.png">
+     </div>
+    </div>
+    <!-- 以下フッターなので変えなくても良い -->
+    <footer>
+        <p>&copy; 2025 GitHubPages勉強会.</p>
+    </footer>
+</body>
+
+</html>
